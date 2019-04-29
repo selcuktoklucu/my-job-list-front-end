@@ -11,7 +11,165 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Browser Template</h1>
+    <body class="col-12">
+      <!-- <video autoplay muted loop class="myVideo"><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"> </video> -->
+      <h2>myLists!</h2>
+      <!-- <p class="classTurn">Turn: <span id="whosTurn">X</span></p> -->
+      <!--  -->
+      <!-- <br> -->
+      <div class="btn play-message-board d-flex justify-content-center">
+      <p id="onPlayMessage"></p>
+      <br>
+      <br>
+      </div>
+      <button type="button" class="btn-primary justify-content-center" id="playAgain" data-target="#iAmNotSure">Play Again?</button>
+
+        <button type="button" class="btn btn-primary d-flex justify-content-center" id="showMyList" >
+          My List!
+        </button>
+      <br>
+      <!--  -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary d-flex justify-content-center" id="myAccount" data-toggle="modal" data-target="#exampleModal">
+        Sign In Here!
+      </button>
+
+      <h6>Two Equal Columns</h6>
+
+      <div class="rowWide">
+        <div class="column" style="background-color:#aaa;">
+          <div id="tasks-display" class=''></div>
+
+        </div>
+        <div class="column" style="background-color:#bbb;">
+          <div id="tasks-detail-display" class='make-it-middle'></div>
+
+        </div>
+      </div>
+      <!-- Modal MY aCCOUNT-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modelTitle">Sign In!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Login Section -->
+            <div class="modal-body">
+              <form id="formSignUp">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email address</label>
+                  <input name="credentials[email]" type="email" class="form-control" id="exampleFormControlInput1SignUP" placeholder="name@example.com">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="examplePassword" placeholder="type your password">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password Confirm</label>
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" id="examplePasswordConfirm" placeholder="confirm password">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button>
+                <br>
+              </form>
+              <!-- SIGN IN -->
+              <form id="formSignIn">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email address</label>
+                  <input name="credentials[email]" type="email" class="form-control" id="exampleFormControlInput1SignIn" placeholder="name@example.com" value="st@st.com">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="examplePasswordFormSignIn" placeholder="type your password" value="stst">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-signIn">Sign In</button>
+                <br>
+              </form>
+              <!-- Change PASSWORD -->
+              <form id="form-change-password">
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Current password</label>
+                  <input name="passwords[old]" type="password" class="form-control" id="examplePasswordOld" placeholder="type your password">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">New Password</label>
+                  <input name="passwords[new]" type="password" class="form-control" id="examplePasswordNew" placeholder="type your password">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-ChangePassword">Change Password</button>
+                <br>
+              </form>
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" >Have an account?</button> -->
+              <!-- <form id="btnShowSignUpSectionForm">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formSignUp" id="btnShowSignUpSection">Looking To Sign Up?</button>
+                <br>
+              </form> -->
+              <form id="formSignOut">
+                <button type="submit" class="btn btn-secondary" id="btn-Signout">Sign Out</button>
+                <br>
+              </form>
+              <!-- second button -->
+                <button type="button" class="btn btn-primary" id="btnShowSignUpIn">Looking to Sign up?</button>
+              <form id="formGameHistory">
+                <button type="submit" class="btn btn-secondary" id="btn-ShowGameRecords">Show Game History</button>
+                <br>
+              </form>
+
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for New Task  -->
+      <div class="modal" id="newTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modelTitle">New Task!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Login Section -->
+            <div class="modal-body">
+              <form id="formNewTask">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Title</label>
+                  <input name="credentials[email]" class="form-control" id="newTaskFirstArea" placeholder="title of the task">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Description</label>
+                  <input name="credentials[password]" type="text" class="form-control" id="newTaskSecondArea" placeholder="Short description">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Due Date</label>
+                  <input name="credentials[password_confirmation]" type="text" class="form-control" id="newTaskThirdArea" placeholder="2000">
+                </div>
+                <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
+                <br>
+              </form>
+
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <form id="frmSubmitNewTask">
+                <button type="submit" class="btn btn-secondary" id="btnSubmitNewTask">Submit New Task</button>
+                <br>
+              </form>
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
     </body>
 </html>

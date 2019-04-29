@@ -1,1 +1,114 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: $gray-500;
+$font-color: $light;
+
+body {
+  // background-color: $body-bg-color;
+  // margin-left: 100px;
+  margin: auto;
+  // display: flex;
+  // justify-content: center;
+}
+
+section {
+  @include make-col-ready;
+  @include media-breakpoint-up(md) {
+    @include make-col(12);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(12);
+  }
+  background: $white;
+  border: 1px solid;
+  cursor: pointer;
+  margin: -1px;
+  outline: none;
+  padding: 1rem;
+
+  p {
+    margin-bottom: 0;
+  }
+
+}
+
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.classTurn {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+}
+
+canvas {
+  height: 10%;
+  width: 10%;
+}
+
+.row{
+  margin: auto;
+}
+.btn{
+  margin: auto;
+}
+.box {
+  color: $font-color;
+  background-color: $secondary;
+  align-items: center;
+  display: flex;
+  border: 1px solid $white;
+  font-size: 3em;
+  font-weight: 800;
+  height: 80px;
+  justify-content: center;
+  width: inherit;
+}
+
+.btn-primary {
+  // display: flex
+  // margin 100;
+  max-width: 40vh;
+}
+
+.row {
+  max-width: 300px;
+}
+
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+.play-message-board {
+  display: inline-block;
+}
+
+.make-it-middle {
+  margin: auto;
+}
+
+// column creation
+.rowWide {
+  max-width: 600px;
+  margin: auto;
+
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

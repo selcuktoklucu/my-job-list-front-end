@@ -1,0 +1,21 @@
+{{#each tasks as |task|}}
+  {{log task}}
+  <section data-id="{{task.id}}">
+    <h6>Description:</h6>
+    <h3>
+
+      {{limit task.description 15}}
+    </h3>
+    <h6>Total steps:</h6>
+    <p>
+      {{#if task.steps.length}}
+        {{task.steps.length}}
+      {{else}}
+        No steps provided yet!
+      {{/if}}
+    </p>
+    <button class="btn btn-primary btnDetails" data-id="{{task.id}}">Details</button>
+
+  </section>
+
+{{/each}}
