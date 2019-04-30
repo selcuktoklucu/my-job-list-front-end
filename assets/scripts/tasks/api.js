@@ -53,16 +53,22 @@ const deleteTask = function (id) {
   })
 }
 
-const changePassword = function (data) {
-  // return $.ajax({
-  //   url: config.apiUrl + '/change-password',
-  //   method: 'PATCH',
-  //   headers: {
-  //     Authorization: 'Token token=' + store.user.token
-  //   },
-  //   // data: data >>Works as well
-  //   data
-  // })
+const updateTask = (id) => {
+  console.log('tasks/UI.js update task')
+  return $.ajax({
+    url: config.apiUrl + `/tasks/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'task': {
+        'title': $('#updateTaskFirstArea').val(),
+        'description': $('#updateTaskSecondArea').val(),
+        'due_date': $('#updateTaskThirdArea').val() // <<< ganna be fixed
+      }
+    }
+  })
 }
 
 const getCurrentGame = function () {
@@ -76,8 +82,8 @@ module.exports = {
   setCurrentGame,
   getCurrentGame,
   addNewTask,
-  changePassword,
   deleteTask,
   getTasks,
-  showTaskDetails
+  showTaskDetails,
+  updateTask
 }

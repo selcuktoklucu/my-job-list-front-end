@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../store')
 const tasksEvents = require('../tasks/api')
-
+// const app = require('../app.js')
 // const gameEvents = require('../games/events.js')
 
 const timingDelay = 1501
@@ -36,6 +36,9 @@ const signInSuccess = function (data) {
   // console.log('Sign in success By ui', data)
   //  we need to successful login token by this function.
   store.user = data.user
+  console.log('signin success')
+  // $('#showMyList').trigger('click')
+  $('#showMyList').trigger('click')
   // console.log('after stored user data into store.user', data)
   $('#form-change-password').slideToggle(500)
   $('#formSignIn').slideToggle(500)
@@ -55,6 +58,7 @@ const signInSuccess = function (data) {
   // $('form').trigger('reset')
   // clears all forms
   // debugger
+  $('#exampleModal').modal('hide')
 }
 
 const signInFailure = function (data) {

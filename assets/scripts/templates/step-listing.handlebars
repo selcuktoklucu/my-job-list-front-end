@@ -21,8 +21,8 @@
         No URL provided yet!
       {{/if}}
     </p>
-    <button class="btn btn-primary btnDetails" data-id="{{step.id}}">Update</button>
-    <button class="btn btn-danger delete" data-id="{{step.id}}">Remove Task</button>
+    <button class="btn btn-primary updateStepOnHandleBar " data-id="{{step.id}}" data-toggle="modal" data-target="#updateStepModal">Update</button>
+    <button class="btn btn-danger deleteStep delete" data-id="{{step.id}}">Remove Step</button>
   </section>
 
 {{/each}}

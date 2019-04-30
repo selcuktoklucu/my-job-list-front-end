@@ -10,7 +10,10 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "three": "^0.104.0",
+    "three-canvas-renderer": "^2.0.0",
+    "three-js": "^79.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

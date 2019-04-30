@@ -8,9 +8,22 @@ body {
   // background-color: $body-bg-color;
   // margin-left: 100px;
   margin: auto;
-  // display: flex;
-  // justify-content: center;
+  background-color: #193c6d;
+  overflow: auto;
+  height: inherit;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
+  background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
+  background-image: -webkit-linear-gradient(135deg, #003073, #029797);
+  background-image: -moz-linear-gradient(45deg, #003073, #029797);
+  background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
+  background-image: -o-linear-gradient(45deg, #003073, #029797);
+  background-image: linear-gradient(135deg, #003073, #029797);
+  text-align: center;
+  // margin: 0px;
 }
+
 
 section {
   @include make-col-ready;
@@ -94,9 +107,12 @@ canvas {
 
 // column creation
 .rowWide {
-  max-width: 600px;
+  max-width: 1200px;
   margin: auto;
+  @media (max-width: 767px) {
 
+      max-width: 450px;
+    }
 }
 
 .column {
