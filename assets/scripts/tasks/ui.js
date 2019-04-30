@@ -1,16 +1,10 @@
 'use strict'
 const store = require('../store')
-// const gameEvents = require('../games/events.js')
-// const app = require('../app.js')
-// const events = require('./events.js')
-// const timingDelay = 1501
-// const imgSrc = 'https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/128/Google_Maps.png'
 const showTasksTemplate = require('../templates/book-listing.handlebars')
 const showStepsTemplate = require('../templates/step-listing.handlebars')
-// const events = require('./events.js')
-// const ui = require('./ui.js')
 const api = require('./api.js')
-// const appjs = require('../store.js')
+
+const timingDelay = 1200
 
 const onAddNewTask = () => {
   $('#newTaskFirstArea').val('')
@@ -18,59 +12,37 @@ const onAddNewTask = () => {
   $('#newTaskThirdArea').val('')
   $('#showMyList').trigger('click')
   $('#newTaskModal').modal('hide')
-  window.setTimeout(function () {
-    $('#success-alert').alert('close')
-  }, 2000)
-  // })
-  // event.getTasks() renew function should be here.
+  //
+  $('#newModelTitle').text('Successfuly Added Task!').css('background-color', 'green').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    // Animation complete.
+    $('#newModelTitle').animate({opacity: 1}).css('background-color', 'white').text('Add Task!')
+  })
 }
 
 const getTasksSuccess = function (data) {
   const showBooksHtml = showTasksTemplate({ tasks: data.tasks })
-  // console.log('get Tasks success!' + data)
   $('#tasks-display').empty()
-  $('#tasks-display').append('Total tasks= ' + data.tasks.length + ' ')
+  // $('#tasks-display').empty()
+  $('#tasks-display').append('<p style="color:white; font-weight: 600">Total tasks= ' + data.tasks.length + ' </p>')
   $('#tasks-display').append(`<Button id="btnNewTask" class="btn btn-primary" data-toggle="modal" data-target="#newTaskModal">New Task?</Button>    `)
-  // $('#btnNewTask').on('click', onAddNewTask)
   $('#tasks-display').append(showBooksHtml)
-  // data.tasks.forEach(function (task) {
-  // console.log(task.id)
-  // <<<<<<<<<<<<< Card start
-  // $('#tasks-display').append(`
-  //   <p>Task ID: ${task.id}</p>
-  //   <p>Description: ${task.description}</p>
-  //   <p>Due Date: ${task.due_date}</p>
-  //   <p>Number of steps: ${task.steps.length}</p>
-  //   <p>     first step: ${JSON.stringify(task.steps[0], null, 2)}</p>
-  //   <div class="card" style="width: 18rem;">
-  //     <img src="${imgSrc}" class="card-img-top" alt="...">
-  //     <div class="card-body">
-  //       <h5 class="card-title">${task.id} ${task.description}</h5>
-  //       <p class="card-text">There Are ${task.steps.length} to see!${JSON.stringify(task.steps[0], null, 2)}</p>
-  //       <a href="#" class="btn btn-primary">Show more!</a>
-  //     </div>
-  //   </div>
-  //   <br>
-  //   `
-  // )
-  // <<<<<<<<<<<<<<<< Card end
-  // })
 }
 
 const getTasksFailure = function () {
-  alert('getTasksFailure')
+  // alert('getTasksFailure')
 }
 
 const showTaskSuccess = (data) => {
   $('#tasks-detail-display').html(`
-    <p id='taskDetailId'>Task ID: ${data.task.id}</p>
-    <p id='taskDetailTitle'>Title: ${data.task.title}</p>
-    <p id='taskDetailDescription'>Description: ${data.task.description}</p>
-    <p id='taskDetailDueDate'>Due Date: ${data.task.due_date}</p>
+    <p style="color:white; font-weight: 600" id='taskDetailId'>Task ID: ${data.task.id}</p>
+    <p style="color:white; font-weight: 600" id='taskDetailTitle'>Title: ${data.task.title}</p>
+    <p style="color:white; font-weight: 600" id='taskDetailDescription'>Description: ${data.task.description}</p>
+    <p style="color:white; font-weight: 600" id='taskDetailDueDate'>Due Date: ${data.task.due_date}</p>
     <button class='btn btn-danger' id='deleteCurrentTask' data-id='${data.task.id}'>Remove the Task</button>
     <button class='btn btn-primary' id='btnUpdateTask' data-id='${data.task.id}' data-toggle="modal" data-target="#updateTaskModal">Update the task</button>
     <button class='btn btn-primary' id='btnNewStep' data-id='${data.task.id}' data-toggle="modal" data-target="#newStepModal">Add new step</button>
-
     <br>
     `
   )
@@ -100,9 +72,12 @@ const onDeleteTaskFailure = () => {
 const onUpdateTaskSuccess = () => {
   $('#updateTaskModal').modal('hide')
   $('#showMyList').trigger('click')
-  // const id = store.currentTask
-
-  // refresh details
+  $('#updateModelTitle').text('Successfuly Updated!').css('background-color', 'green').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    // Animation complete.
+    $('#updateModelTitle').animate({opacity: 1}).css('background-color', 'white').text('Update a task')
+  })
   const id = store.currentTask
   api.showTaskDetails(id)
     .then(showTaskSuccess)

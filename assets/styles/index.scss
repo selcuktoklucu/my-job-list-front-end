@@ -1,29 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+@font-face {
+  font-family: 'Gugi';
+  src: url('public/Gugi-Regular.ttf') format('truetype');
+}
 
 $alt-color: $cyan;
 $body-bg-color: $gray-500;
 $font-color: $light;
 
+// toaster start
+
+// toaster  end
+
+h2 {
+  font-family: 'Gugi';
+  color:white;
+  letter-spacing: 5px;
+}
 body {
   // background-color: $body-bg-color;
   // margin-left: 100px;
   margin: auto;
-  background-color: #193c6d;
+  // background-color: #193c6d;
   overflow: auto;
   height: inherit;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
-  background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
-  background-image: -webkit-linear-gradient(135deg, #003073, #029797);
-  background-image: -moz-linear-gradient(45deg, #003073, #029797);
-  background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
-  background-image: -o-linear-gradient(45deg, #003073, #029797);
-  background-image: linear-gradient(135deg, #003073, #029797);
+  // filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#003073', endColorstr='#029797');
+  // background-image: url(//img.alicdn.com/tps/TB1d.u8MXXXXXXuXFXXXXXXXXXX-1900-790.jpg);
+  // background-size: 100%;
+  // background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #003073), color-stop(100%, #029797));
+  // background-image: -webkit-linear-gradient(135deg, #003073, #029797);
+  // background-image: -moz-linear-gradient(45deg, #003073, #029797);
+  // background-image: -ms-linear-gradient(45deg, #003073 0, #029797 100%);
+  // background-image: -o-linear-gradient(45deg, #003073, #029797);
+  // background-image: linear-gradient(135deg, #003073, #029797);
+  background-color: #487346;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='270' viewBox='0 0 200 200'%3E%3Cg %3E%3Cpolygon fill='%23608f57' points='100 57.1 64 93.1 71.5 100.6 100 72.1'/%3E%3Cpolygon fill='%2374ad69' points='100 57.1 100 72.1 128.6 100.6 136.1 93.1'/%3E%3Cpolygon fill='%23608f57' points='100 163.2 100 178.2 170.7 107.5 170.8 92.4'/%3E%3Cpolygon fill='%2374ad69' points='100 163.2 29.2 92.5 29.2 107.5 100 178.2'/%3E%3Cpath fill='%2389CC7C' d='M100 21.8L29.2 92.5l70.7 70.7l70.7-70.7L100 21.8z M100 127.9L64.6 92.5L100 57.1l35.4 35.4L100 127.9z'/%3E%3Cpolygon fill='%237f8f53' points='0 157.1 0 172.1 28.6 200.6 36.1 193.1'/%3E%3Cpolygon fill='%239bad64' points='70.7 200 70.8 192.4 63.2 200'/%3E%3Cpolygon fill='%23B6CC76' points='27.8 200 63.2 200 70.7 192.5 0 121.8 0 157.2 35.3 192.5'/%3E%3Cpolygon fill='%239bad64' points='200 157.1 164 193.1 171.5 200.6 200 172.1'/%3E%3Cpolygon fill='%237f8f53' points='136.7 200 129.2 192.5 129.2 200'/%3E%3Cpolygon fill='%23B6CC76' points='172.1 200 164.6 192.5 200 157.1 200 157.2 200 121.8 200 121.8 129.2 192.5 136.7 200'/%3E%3Cpolygon fill='%237f8f53' points='129.2 0 129.2 7.5 200 78.2 200 63.2 136.7 0'/%3E%3Cpolygon fill='%23B6CC76' points='200 27.8 200 27.9 172.1 0 136.7 0 200 63.2 200 63.2'/%3E%3Cpolygon fill='%239bad64' points='63.2 0 0 63.2 0 78.2 70.7 7.5 70.7 0'/%3E%3Cpolygon fill='%23B6CC76' points='0 63.2 63.2 0 27.8 0 0 27.8'/%3E%3C/g%3E%3C/svg%3E");
   text-align: center;
+
+
 }
-
-
 section {
   @include make-col-ready;
   @include media-breakpoint-up(md) {
@@ -44,8 +59,6 @@ section {
   }
 
 }
-
-
 h1 {
   display: flex;
   justify-content: center;
@@ -69,7 +82,7 @@ canvas {
   margin: auto;
 }
 .box {
-  color: $font-color;
+  // color: $font-color;
   background-color: $secondary;
   align-items: center;
   display: flex;
@@ -128,4 +141,16 @@ canvas {
   content: "";
   display: table;
   clear: both;
+}
+
+.footer {
+   font-family: 'Gugi', cursive;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #f8001650;
+   letter-spacing: 4px;
+   color: white;
+   text-align: center;
 }

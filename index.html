@@ -3,44 +3,27 @@
     <head>
       <title>myLists!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="col-12">
-      <!-- <div class="product-options">
-        <a  id="myWish" href="#"  class="btn btn-mini" >Add to Wishlist </a>
-        <a  href="#" class="btn btn-mini"> Purchase </a>
-      </div> -->
       <div class="alert alert-success" id="success-alert">
           <button type="button" class="close" data-dismiss="alert">x</button>
           <strong>Success! </strong>
           Task/Step Successfully Added!
       </div>
-      <br>
       <!-- <video autoplay muted loop class="myVideo"><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"> </video> -->
-      <h2>myLists!</h2>
-      <!-- <p class="classTurn">Turn: <span id="whosTurn">X</span></p> -->
-      <!--  -->
-      <!-- <br> -->
-      <div class="btn play-message-board d-flex justify-content-center">
-      <div id="messageBoard"></div>
-
       <br>
-      </div>
-      <!-- <button type="button" class="btn-primary justify-content-center" id="playAgain" data-target="#iAmNotSure">Play Again?</button> -->
+      <h2>myLists!</h2>
 
         <button type="button"  class="btn btn-primary d-flex justify-content-center" id="showMyList" style="visibility:hidden" >
           My List!
         </button>
-      <br>
-      <!--  -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary d-flex justify-content-center" id="myAccount" data-toggle="modal" data-target="#exampleModal">
+      <button style="margin-left:50px;" type="button" class="btn btn-primary d-flex justify-content-center" id="myAccount" data-toggle="modal" data-target="#exampleModal">
         Sign In Here!
       </button>
 
@@ -146,7 +129,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modelTitle">New Task!</h5>
+              <h5 class="modal-title" id="newModelTitle">New Task!</h5>
               <!-- exit button -->
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -165,7 +148,7 @@
                 </div>
                 <div class="form-password">
                   <label for="exampleFormControlInput1">Due Date</label>
-                  <input name="credentials[password_confirmation]" type="text" class="form-control" id="newTaskThirdArea" placeholder="format: 2000-01-01">
+                  <input name="credentials[password_confirmation]" type="date" class="form-control" id="newTaskThirdArea" placeholder="format: 2000-01-01">
                 </div>
                 <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
                 <br>
@@ -212,7 +195,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Due Date</label>
-                  <input type="text" class="form-control" id="updateTaskThirdArea" placeholder="format: 2000-01-01">
+                  <input type="date" class="form-control" id="updateTaskThirdArea" placeholder="format: 2000-01-01">
                 </div>
                 <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
                 <br>
@@ -326,6 +309,9 @@
 
           </div>
         </div>
+      </div>
+      <div class="footer">
+          <p>Created by Selcuk Toklucu, 2019</p>
       </div>
     </body>
 </html>

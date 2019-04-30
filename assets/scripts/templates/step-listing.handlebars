@@ -1,20 +1,18 @@
 {{#each steps as |step|}}
 
-  <section data-id="{{step.id}}">
-    <h6>Description:</h6>
-    <h3>
-
+  <section data-id="{{step.id}}" style="background-color:#00000050;">
+    <h3 style="color:#ffffff; font-weight:500;">
       {{limit step.name 15}}
     </h3>
-    <h6>step color:</h6>
-    <p>
+    <p style="color:#ffffff; font-weight:500;">step color:</p>
+    <p style="color:#ffffff; font-weight:500;">
       {{#if step.color}}
         {{step.color}}
       {{else}}
         No color provided yet!
       {{/if}}
     </p>
-    <p>
+    <p style="color:#ffffff; font-weight:500;">
       {{#if step.url}}
         {{step.url}}
       {{else}}

@@ -3,6 +3,7 @@ const store = require('../store')
 // const tasksEvents = require('../tasks/api')
 // const app = require('../app.js')
 // const gameEvents = require('../games/events.js')
+// const toastr = require('../../node_modules/toastr/toastr.js')
 
 const timingDelay = 1501
 
@@ -44,7 +45,7 @@ const signInSuccess = function (data) {
   $('#btn-Signout').slideToggle(500)
   // $('#btn-ShowGameRecords').toggle(500)
   $('#btnShowSignUpIn').hide(500)
-  $('#myAccount').text('My Lists')
+  $('#myAccount').text('My Account')
   $('#modelTitle').text('Successfuly Logged In!').css('background-color', 'green').animate({
     opacity: 0.25
   }, timingDelay, function () {
@@ -56,6 +57,9 @@ const signInSuccess = function (data) {
   // clears all forms
   // debugger
   $('#exampleModal').modal('hide')
+  // $.toast({priority: 'success', title: 'Title', message: 'Your message here'})
+  // $.toaster('Toast message to be shown')
+  // toastr.success('Have fun storming the castle!', 'Miracle Max Says')
 }
 
 const signInFailure = function (data) {
