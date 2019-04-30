@@ -5,18 +5,18 @@ const store = require('../store')
 const onDeleteStep = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log('remove step' + id)
+  // console.log('remove step' + id)
   api.deleteStep(id)
     .then(ui.onDeleteStepSuccess)
     .catch(ui.onDeleteStepFailure)
 }
 
 const onNewStep = (event) => {
-  console.log('store.currentTask is ' + store.currentTask)
+  // console.log('store.currentTask is ' + store.currentTask)
   // ;
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log('Add new Step to Task of ' + id)
+  // console.log('Add new Step to Task of ' + id)
   api.addStep(id)
     .then(ui.onAddStepSuccess)
     .catch(ui.onAddStepFailure)
@@ -25,7 +25,7 @@ const onNewStep = (event) => {
 const onUpdateStep = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log('Update a Step id of: ' + id + 'stepname ')
+  // console.log('Update a Step id of: ' + id + 'stepname ')
   // $('#updateStepModal').
   api.getStep(id).then(function (successData) {
     $('#updateStepFirstArea').val(successData.step.name)
@@ -47,7 +47,7 @@ const onUpdateStep = (event) => {
 
 const onUpdateTheStepFromForm = () => {
   event.preventDefault()
-  console.log('Update The STEP SUBMiT!' + store.currentStep)
+  // console.log('Update The STEP SUBMiT!' + store.currentStep)
   const id = store.currentStep
   api.updateStep(id)
     .then(ui.onUpdateStepSuccess)

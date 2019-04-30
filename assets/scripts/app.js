@@ -29,6 +29,9 @@ $(() => {
   $('#btn-Signout').hide()
   $('#btn-ShowGameRecords').hide()
   $('#exampleModal').modal('show')
+  $(document).ready(function () {
+    $('#success-alert').hide()
+  })
 })
 
 // module.exports = refreshSelectedTask

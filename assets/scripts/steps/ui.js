@@ -3,7 +3,7 @@
 const tasksEvents = require('../tasks/events.js')
 
 const onAddStepSuccess = () => {
-  console.log('Add step success')
+  // console.log('Add step success')
   $('#newStepFirstArea').val('')
   $('#newStepSecondArea').val('')
   $('#newStepThirdArea').val('')
@@ -13,25 +13,25 @@ const onAddStepSuccess = () => {
 }
 
 const onAddStepFailure = () => {
-  console.log('Add step Failure')
+  // console.log('Add step Failure')
 }
 
 const onDeleteStepSuccess = () => {
   $('#showMyList').trigger('click')
   tasksEvents.refreshSelectedTask()
-  console.log('delete step success')
+  // console.log('delete step success')
 }
 const onDeleteStepFailure = () => {
-  console.log('delete step failure')
+  // console.log('delete step failure')
 }
 const onUpdateStepSuccess = () => {
-  console.log('Update step Success')
+  // console.log('Update step Success')
   $('#updateStepModal').modal('hide')
   tasksEvents.refreshSelectedTask()
 }
 
 const onUpdateStepFailure = () => {
-  console.log('Update step failure')
+  // console.log('Update step failure')
 }
 
 module.exports = {

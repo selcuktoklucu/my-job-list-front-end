@@ -10,9 +10,9 @@ const store = require('../store')
 
 const onGetTasks = function (event) {
   event.preventDefault()
-  console.log('event is ' + event)
+  // console.log('event is ' + event)
   // const data = getFormFields(event.target)
-  console.log('Hey I am on register function! Token is: ' + store.user.token)
+  // console.log('Hey I am on register function! Token is: ' + store.user.token)
   api.getTasks() // removed data from paramers, because I'm getting token directly
     .then(ui.getTasksSuccess)
     .catch(ui.getTasksFailure)
@@ -30,7 +30,7 @@ const onDetails = function (event) {
   const id = $(event.target).data('id')
   store.currentTask = id
   // console.log(id)
-  console.log('Hey You clicked the on details of ' + id)
+  // console.log('Hey You clicked the on details of ' + id)
   api.showTaskDetails(id)
     .then(ui.showTaskSuccess)
     // .then(() => onGetBooks(event))
@@ -48,7 +48,7 @@ const onNewTask = (event) => {
 const onDeleteTask = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log('remove ' + id)
+  // console.log('remove ' + id)
   api.deleteTask(id)
     .then(ui.onDeleteTaskSuccess)
     .catch(ui.onDeleteTaskFailure)
@@ -56,7 +56,7 @@ const onDeleteTask = (event) => {
 
 const onUpdateTheTask = () => {
   event.preventDefault()
-  console.log('Update The TASK!' + store.currentTask)
+  // console.log('Update The TASK!' + store.currentTask)
   const id = store.currentTask
   api.updateTask(id)
     .then(ui.onUpdateTaskSuccess)

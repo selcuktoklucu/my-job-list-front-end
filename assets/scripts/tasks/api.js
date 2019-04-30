@@ -24,7 +24,7 @@ const showTaskDetails = function (id) {
 }
 
 const addNewTask = function (data) {
-  console.log('task/apiJs addNewTask')
+  // console.log('task/apiJs addNewTask')
   return $.ajax({
     url: config.apiUrl + '/tasks/',
     method: 'POST',
@@ -42,7 +42,7 @@ const addNewTask = function (data) {
 }
 
 const deleteTask = function (id) {
-  console.log('tasks/Api.js id is : ' + id)
+  // console.log('tasks/Api.js id is : ' + id)
   return $.ajax({
     url: config.apiUrl + `/tasks/${id}`,
     method: 'DELETE',
@@ -54,7 +54,7 @@ const deleteTask = function (id) {
 }
 
 const updateTask = (id) => {
-  console.log('tasks/UI.js update task')
+  // console.log('tasks/UI.js update task')
   return $.ajax({
     url: config.apiUrl + `/tasks/${id}`,
     method: 'PATCH',

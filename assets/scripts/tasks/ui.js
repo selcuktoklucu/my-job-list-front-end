@@ -13,20 +13,24 @@ const api = require('./api.js')
 // const appjs = require('../store.js')
 
 const onAddNewTask = () => {
-  console.log('heyy')
-  console.log('onNewTask YAY')
   $('#newTaskFirstArea').val('')
   $('#newTaskSecondArea').val('')
   $('#newTaskThirdArea').val('')
   $('#showMyList').trigger('click')
   $('#newTaskModal').modal('hide')
-
+  // $('#messageBoard').a
+  // $('#myWish').click(function showAlert () {
+  $('#success-alert').alert('show')
+  window.setTimeout(function () {
+    $('#success-alert').alert('close')
+  }, 2000)
+  // })
   // event.getTasks() renew function should be here.
 }
 
 const getTasksSuccess = function (data) {
   const showBooksHtml = showTasksTemplate({ tasks: data.tasks })
-  console.log('get Tasks success!' + data)
+  // console.log('get Tasks success!' + data)
   $('#tasks-display').empty()
   $('#tasks-display').append('Total tasks= ' + data.tasks.length + ' ')
   $('#tasks-display').append(`<Button id="btnNewTask" class="btn btn-primary" data-toggle="modal" data-target="#newTaskModal">New Task?</Button>    `)
@@ -97,7 +101,6 @@ const onDeleteTaskFailure = () => {
 }
 
 const onUpdateTaskSuccess = () => {
-  console.log('updateTaskSuccess')
   $('#updateTaskModal').modal('hide')
   $('#showMyList').trigger('click')
   // const id = store.currentTask
@@ -110,7 +113,7 @@ const onUpdateTaskSuccess = () => {
 }
 
 const onUpdateTaskFailure = () => {
-  console.log('updateTaskfailure')
+  // console.log('updateTaskfailure')
 }
 
 module.exports = {

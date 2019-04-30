@@ -1,6 +1,6 @@
 'use strict'
 const store = require('../store')
-const tasksEvents = require('../tasks/api')
+// const tasksEvents = require('../tasks/api')
 // const app = require('../app.js')
 // const gameEvents = require('../games/events.js')
 
@@ -33,13 +33,10 @@ const signUpFailure = function (data) {
 
 const signInSuccess = function (data) {
   $('form').trigger('reset')
-  // console.log('Sign in success By ui', data)
   //  we need to successful login token by this function.
   store.user = data.user
-  console.log('signin success')
   // $('#showMyList').trigger('click')
   $('#showMyList').trigger('click')
-  // console.log('after stored user data into store.user', data)
   $('#form-change-password').slideToggle(500)
   $('#formSignIn').slideToggle(500)
   // $('#btnShowSignUpSection').hide(500)
@@ -62,7 +59,6 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (data) {
-  // console.log('Sign in failure', data)
   $('form').trigger('reset')
   $('#modelTitle').text(' User or Password is Wrong, Try Again! ').css('background-color', 'red').animate({
     opacity: 0.5
@@ -74,7 +70,6 @@ const signInFailure = function (data) {
 
 const changePwSuccess = function (data) {
   $('form').trigger('reset')
-  // console.log('Change password success', data)
   $('#modelTitle').text(' Password changed Successfully ').css('background-color', 'green').animate({
     opacity: 0.5
   }, timingDelay, function () {
@@ -85,7 +80,6 @@ const changePwSuccess = function (data) {
 }
 const changePwFailure = function (data) {
   $('form').trigger('reset')
-  // console.log('Change password failed!', data)
   $('#modelTitle').text(' Oppss! Something went wrong! Try again! ').css('background-color', 'red').animate({
     opacity: 0.5
   }, timingDelay, function () {
@@ -96,7 +90,6 @@ const changePwFailure = function (data) {
 
 const signOutSuccess = function () {
   $('form').trigger('reset')
-  // console.log('User sign out Successful')
   store.user = null
   $('#modelTitle').text(' User Signed Out Successfully! ').css('background-color', 'green').animate({
     opacity: 0.5
@@ -118,7 +111,6 @@ const signOutSuccess = function () {
 
 const signOutFailure = function () {
   $('form').trigger('reset')
-  // console.log('signOut Failed!')
   $('#modelTitle').text(' Sign Out Failed! Please Try Again... ').css('background-color', 'red').animate({
     opacity: 0.5
   }, timingDelay, function () {
