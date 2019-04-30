@@ -1,0 +1,28 @@
+{{#each steps as |step|}}
+
+  <section data-id="{{step.id}}">
+    <h6>Description:</h6>
+    <h3>
+
+      {{limit step.name 15}}
+    </h3>
+    <h6>step color:</h6>
+    <p>
+      {{#if step.color}}
+        {{step.color}}
+      {{else}}
+        No color provided yet!
+      {{/if}}
+    </p>
+    <p>
+      {{#if step.url}}
+        {{step.url}}
+      {{else}}
+        No URL provided yet!
+      {{/if}}
+    </p>
+    <button class="btn btn-primary updateStepOnHandleBar " data-id="{{step.id}}" data-toggle="modal" data-target="#updateStepModal">Update</button>
+    <button class="btn btn-danger deleteStep delete" data-id="{{step.id}}">Remove Step</button>
+  </section>
+
+{{/each}}
