@@ -18,13 +18,6 @@ const onAddNewTask = () => {
   $('#newTaskThirdArea').val('')
   $('#showMyList').trigger('click')
   $('#newTaskModal').modal('hide')
-  // $('#messageBoard').a
-  // $('#myWish').click(function showAlert () {
-<<<<<<< HEAD
-  $('#success-alert').alert()
-=======
-  $('#success-alert').alert('show')
->>>>>>> dev
   window.setTimeout(function () {
     $('#success-alert').alert('close')
   }, 2000)
