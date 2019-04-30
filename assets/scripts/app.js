@@ -2,7 +2,7 @@
 const userEvents = require('./auth/events.js')
 const taskEvents = require('./tasks/events.js')
 const stepEvents = require('./steps/events.js')
-const threeJS = require('./three.js')
+// const threeJS = require('./three.js')
 // use require with a reference to bundle the file and use it in this file
 // const store = require('./store')
 // const taskUi = require('./tasks/ui.js')
@@ -21,7 +21,7 @@ $(() => {
   userEvents.addHandlers()
   taskEvents.addHandlers()
   stepEvents.addHandlers()
-  threeJS.addHandlers()
+  // threeJS.addHandlers()
   // your JS code goes here
   $('#playAgain').hide()
   $('#formSignUp').hide()
