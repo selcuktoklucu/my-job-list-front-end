@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>myLists!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="col-12">
+      <br>
       <!-- <video autoplay muted loop class="myVideo"><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"> </video> -->
       <h2>myLists!</h2>
       <!-- <p class="classTurn">Turn: <span id="whosTurn">X</span></p> -->
@@ -20,11 +21,10 @@
       <div class="btn play-message-board d-flex justify-content-center">
       <p id="onPlayMessage"></p>
       <br>
-      <br>
       </div>
-      <button type="button" class="btn-primary justify-content-center" id="playAgain" data-target="#iAmNotSure">Play Again?</button>
+      <!-- <button type="button" class="btn-primary justify-content-center" id="playAgain" data-target="#iAmNotSure">Play Again?</button> -->
 
-        <button type="button" class="btn btn-primary d-flex justify-content-center" id="showMyList" >
+        <button type="button"  class="btn btn-primary d-flex justify-content-center" id="showMyList" style="visibility:hidden" >
           My List!
         </button>
       <br>
@@ -38,11 +38,13 @@
       <br>
 
       <div class="rowWide">
-        <div class="column" style="background-color:#aaa;">
+        <div class="column">
+          <!-- <div class="column" style="background-color:#aaa;"> -->
           <div id="tasks-display" class=''></div>
 
         </div>
-        <div class="column" style="background-color:#bbb;">
+        <div class="column">
+            <!-- <div class="column" style="background-color:#bbb;"> -->
           <div id="tasks-detail-display" class='make-it-middle'></div>
 
         </div>

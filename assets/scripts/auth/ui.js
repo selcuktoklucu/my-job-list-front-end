@@ -8,7 +8,7 @@ const timingDelay = 1501
 
 const signUpSuccess = function (data) {
   // console.log('signup Success', data)
-  tasksEvents.onGetTasks()
+  // tasksEvents.onGetTasks()
   $('form').trigger('reset')
   $('#modelTitle').text('Successfuly Sign Up!').css('background-color', 'green').animate({
     opacity: 0.25
@@ -45,9 +45,9 @@ const signInSuccess = function (data) {
   // $('#btnShowSignUpSection').hide(500)
   // $('#btnShowSignUpSection').slideToggle(500)
   $('#btn-Signout').slideToggle(500)
-  $('#btn-ShowGameRecords').toggle(500)
+  // $('#btn-ShowGameRecords').toggle(500)
   $('#btnShowSignUpIn').hide(500)
-  $('#myAccount').text('My Tic-Tac-Toe')
+  $('#myAccount').text('My Lists')
   $('#modelTitle').text('Successfuly Logged In!').css('background-color', 'green').animate({
     opacity: 0.25
   }, timingDelay, function () {
@@ -110,7 +110,9 @@ const signOutSuccess = function () {
   // $('#btnShowSignUpSection').show(600)
   $('#btnShowSignUpIn').show(500)
   $('#btn-ShowGameRecords').hide(500)
-  $('#games-display').empty()
+  // $('#games-display').empty()
+  $('#tasks-display').empty()
+  $('#tasks-detail-display').empty()
   $('#myAccount').text('Sign In Here!')
 }
 

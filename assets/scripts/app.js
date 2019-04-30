@@ -28,6 +28,7 @@ $(() => {
   $('#form-change-password').hide()
   $('#btn-Signout').hide()
   $('#btn-ShowGameRecords').hide()
+  $('#exampleModal').modal('show')
 })
 
 // module.exports = refreshSelectedTask
