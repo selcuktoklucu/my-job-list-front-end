@@ -15,13 +15,24 @@ const onAddNewTask = () => {
   //
   $('#newModelTitle').text('Successfuly Added Task!').css('background-color', 'green').animate({
     opacity: 0.25
-  }, timingDelay, function () {
+  }, timingDelay, () => {
     // Animation complete.
     $('#newModelTitle').animate({opacity: 1}).css('background-color', 'white').text('Add Task!')
   })
 }
 
-const getTasksSuccess = function (data) {
+const onAddNewTaskFailure = () => {
+  // Animation
+  const originalValue = $('#btnSubmitNewTask').text()
+  $('#btnSubmitNewTask').text('Something Went Wrong!').css('background-color', 'Red').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    $('#btnSubmitNewTask').animate({opacity: 1}).css('background-color', 'Blue').text(originalValue)
+  })
+  // Animation complete.
+}
+
+const getTasksSuccess = data => {
   const showBooksHtml = showTasksTemplate({ tasks: data.tasks })
   $('#tasks-display').empty()
   // $('#tasks-display').empty()
@@ -30,43 +41,54 @@ const getTasksSuccess = function (data) {
   $('#tasks-display').append(showBooksHtml)
 }
 
-const getTasksFailure = function () {
+const getTasksFailure = () => {
   // alert('getTasksFailure')
 }
 
-const showTaskSuccess = (data) => {
+const showTaskSuccess = data => {
   $('#tasks-detail-display').html(`
-    <p style="color:white; font-weight: 600" id='taskDetailId'>Task ID: ${data.task.id}</p>
-    <p style="color:white; font-weight: 600" id='taskDetailTitle'>Title: ${data.task.title}</p>
-    <p style="color:white; font-weight: 600" id='taskDetailDescription'>Description: ${data.task.description}</p>
-    <p style="color:white; font-weight: 600" id='taskDetailDueDate'>Due Date: ${data.task.due_date}</p>
     <button class='btn btn-danger' id='deleteCurrentTask' data-id='${data.task.id}'>Remove the Task</button>
-    <button class='btn btn-primary' id='btnUpdateTask' data-id='${data.task.id}' data-toggle="modal" data-target="#updateTaskModal">Update the task</button>
-    <button class='btn btn-primary' id='btnNewStep' data-id='${data.task.id}' data-toggle="modal" data-target="#newStepModal">Add new step</button>
-    <br>
-    `
-  )
+  <button class='btn btn-primary' id='btnUpdateTask' data-id='${data.task.id}' data-toggle="modal" data-target="#updateTaskModal">Update the task</button>
+  <button class='btn btn-primary' id='btnNewStep' data-id='${data.task.id}' data-toggle="modal" data-target="#newStepModal">Add new step</button>
+  `)
   store.currentTask = data.task.id
   $('#updateTaskFirstArea').val(data.task.title)
   $('#updateTaskSecondArea').val(data.task.description)
   $('#updateTaskThirdArea').val(data.task.due_date)
-
-  // $('#tasks-display').append(`<Button id="btnNewTask" class="btn btn-primary" data-toggle="modal" data-target="#newTaskModal">New Task?</Button>    `)
-  // console.log('@tasks/ui.js the data is: ' + JSON.stringify(data.task.steps, null, 2) + data)
   const showStepsHtml = showStepsTemplate({ steps: data.task.steps })
   $('#tasks-detail-display').append(showStepsHtml)
 }
 const showTaskFailure = () => {
-  console.log('failure')
+  // Animation
+  const originalValue = $('.btnDetails').text()
+  $('.btnDetails').text('Something Went Wrong').css('background-color', 'Red').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    $('.btnDetails').animate({opacity: 1}).css('background-color', 'Yellow').text(originalValue)
+  })
+  // Animation complete.
 }
 const onDeleteTaskSuccess = () => {
-  console.log('Delete Task success')
   $('#showMyList').trigger('click')
   $('#tasks-detail-display').empty()
-  // Add renew the first section command.
+  // Animation
+  const originalValue = $('#deleteCurrentTask').text()
+  $('#deleteCurrentTask').text('Success').css('background-color', 'Red').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    $('#deleteCurrentTask').animate({opacity: 1}).css('background-color', 'Red').text(originalValue)
+  })
+  // Animation complete.
 }
 const onDeleteTaskFailure = () => {
-  console.log('delete step failure')
+  // Animation
+  const originalValue = $('#deleteCurrentTask').text()
+  $('#deleteCurrentTask').text('Something Went Wrong!').css('background-color', 'Red').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    $('#deleteCurrentTask').animate({opacity: 1}).css('background-color', 'Red').text(originalValue)
+  })
+  // Animation complete.
 }
 
 const onUpdateTaskSuccess = () => {
@@ -78,6 +100,7 @@ const onUpdateTaskSuccess = () => {
     // Animation complete.
     $('#updateModelTitle').animate({opacity: 1}).css('background-color', 'white').text('Update a task')
   })
+
   const id = store.currentTask
   api.showTaskDetails(id)
     .then(showTaskSuccess)
@@ -85,7 +108,14 @@ const onUpdateTaskSuccess = () => {
 }
 
 const onUpdateTaskFailure = () => {
-  // console.log('updateTaskfailure')
+  // Animation
+  const originalValue = $('#btnUpdateTheTask').text()
+  $('#btnUpdateTheTask').text('Something Went Wrong!').css('background-color', 'Red').animate({
+    opacity: 0.25
+  }, timingDelay, function () {
+    $('#btnUpdateTheTask').animate({opacity: 1}).css('background-color', 'Blue').text(originalValue)
+  })
+  // Animation complete.
 }
 
 module.exports = {
@@ -97,5 +127,6 @@ module.exports = {
   onDeleteTaskFailure,
   onUpdateTaskSuccess,
   onUpdateTaskFailure,
-  showTaskFailure
+  showTaskFailure,
+  onAddNewTaskFailure
 }

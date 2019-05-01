@@ -1,16 +1,11 @@
 // All clicks will be here to handle front end
 const api = require('./api.js')
-// const gEn = require('../gameEngine.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
-// const store = require('../store.js')
-
-// let currentTurn = 'X'
 
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // // console.log('Hey I am on register function!')
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -19,7 +14,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // console.log('Hey I am on SignIN function!')
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -28,7 +22,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // console.log(data)
   api.changePassword(data)
     .then(ui.changePwSuccess)
     .catch(ui.changePwFailure)
@@ -44,7 +37,6 @@ const onSignOut = function () {
 let a = 1
 const toggleSignUpIn = () => {
   if (a % 2 === 1) {
-    // console.log('show sign up, hide sign in')
     $('#formSignUp').show(500)
     $('#formSignIn').hide(500)
     $('#modelTitle').text('Sign Up!')

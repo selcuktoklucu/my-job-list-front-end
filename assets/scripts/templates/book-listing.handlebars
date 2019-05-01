@@ -2,10 +2,10 @@
 
   <section data-id="{{task.id}}" style="background-color:#00000050;">
     <h5 style="color:#ffffff; font-weight:500;">Title:{{limit task.title 20}}</h5>
-    <!-- <p>Description:</p>
-    <p>
-      {{limit task.description 15}}
-    </p> -->
+    <p style="color:#ffffff; font-weight:500;">Description:</p>
+    <p style="color:#ffffff; font-weight:500;">
+      {{limit task.description 30}}
+    </p>
     <h6 style="color:#ffffff; font-weight:500;">Total:</h6>
     <p style="color:#ffffff; font-weight:500;">
       {{#if task.steps.length}}

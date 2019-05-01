@@ -3,7 +3,6 @@ const config = require('../config')
 const store = require('../store')
 
 const deleteStep = function (id) {
-  // console.log('steps/Api.js id is : ' + id)
   return $.ajax({
     url: config.apiUrl + `/steps/${id}`,
     method: 'DELETE',
@@ -25,12 +24,7 @@ const getStep = function (id) {
   })
 }
 
-// ,
-// success: function (data) {
-//   $.parseJSON(data)
-// }
 const addStep = function (data) {
-  // console.log('steps/apiJs addNewStep')
   return $.ajax({
     url: config.apiUrl + '/steps/',
     method: 'POST',
@@ -49,7 +43,6 @@ const addStep = function (data) {
 }
 
 const updateStep = (id) => {
-  // console.log('step/UI.js update step')
   return $.ajax({
     url: config.apiUrl + `/steps/${id}`,
     method: 'PATCH',

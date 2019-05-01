@@ -12,8 +12,7 @@ const getTasks = function (data) {
   })
 }
 
-const showTaskDetails = function (id) {
-  // console.log('called tasks/api showTaskDetails')
+const showTaskDetails = id => {
   return $.ajax({
     url: config.apiUrl + `/tasks/${id}`,
     method: 'GET',
@@ -23,8 +22,7 @@ const showTaskDetails = function (id) {
   })
 }
 
-const addNewTask = function (data) {
-  // console.log('task/apiJs addNewTask')
+const addNewTask = data => {
   return $.ajax({
     url: config.apiUrl + '/tasks/',
     method: 'POST',
@@ -41,19 +39,17 @@ const addNewTask = function (data) {
   })
 }
 
-const deleteTask = function (id) {
-  // console.log('tasks/Api.js id is : ' + id)
+const deleteTask = id => {
   return $.ajax({
     url: config.apiUrl + `/tasks/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
-      // we are deleting the token on api to sign out. thats why it has delete tag
     }
   })
 }
 
-const updateTask = (id) => {
+const updateTask = id => {
   // console.log('tasks/UI.js update task')
   return $.ajax({
     url: config.apiUrl + `/tasks/${id}`,
@@ -70,17 +66,7 @@ const updateTask = (id) => {
     }
   })
 }
-
-const getCurrentGame = function () {
-
-}
-
-const setCurrentGame = function () {
-
-}
 module.exports = {
-  setCurrentGame,
-  getCurrentGame,
   addNewTask,
   deleteTask,
   getTasks,

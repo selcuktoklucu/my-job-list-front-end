@@ -18,15 +18,14 @@ System provides these features:
 -Keep tracks of steps of these tasks
 -Creating,Updating,Reading,Deleting these resources on the API server, associated with the user.
 
-Unsolved Problems: Visual design is improvable. Limitation for each user's tasks and steps can be added. For the date section, could be a date picker, instead of manual entry in format.
+Unsolved Problems: Visual design is improvable. Limitation for each user's tasks and steps can be added. Footer has a problem, blocks content.
 
-Tech Keywords: Single-Page-Application(SPA), Ruby on Rails, HTML5, Javascript, Bootstrap 3, CSS3, API, JSON, JQuery, Git/Github, Authentication
+Tech Keywords: Single-Page-Application(SPA), Ruby on Rails, PostgreSQL, HTML5,Javascript, Bootstrap 3, CSS3, API, JSON, JQuery, Git/Github, Authentication, Full-Stack, Database, RDMS
 
 Some user stories from my users!
 1) As a busy person, I wish I could save my daily tasks somewhere besides google or any other application
 2) As a person, It would be nice to have a cloud environment to keep my things in it.
-3) 
+3) Lists are my life! Something, usable and able to put my scheduled tasks. Wish to have notification!
 
 Wireframes
-![Wireframe1](./picturew1.jpg)
-![Wireframe2](./picturew2.jpg)
+![Wireframe1](./wireframeFinish.png)

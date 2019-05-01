@@ -128,6 +128,14 @@ canvas {
     }
 }
 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.content-wrap {
+  padding-bottom: 60px;
+}
+
 .column {
   background-color: #00000050;
   float: left;
@@ -143,9 +151,17 @@ canvas {
   clear: both;
 }
 
+.make-it-middle{
+  color: white;
+  font-weight: 600;
+  // white-space:
+
+}
+
 .footer {
    font-family: 'Gugi', cursive;
    position: fixed;
+   // position: absolute;
    left: 0;
    bottom: 0;
    width: 100%;
