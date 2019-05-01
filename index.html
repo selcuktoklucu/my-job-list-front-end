@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>myLists!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="col-12">
+      <div class="page-container">
+      <div class="content-wrap">
+      <div class="alert alert-success" id="success-alert">
+
+      </div>
+      <!-- <video autoplay muted loop class="myVideo"><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"> </video> -->
+      <br>
+      <h2>myLists!</h2>
+
+        <button type="button"  class="btn btn-primary d-flex justify-content-center" id="showMyList" style="visibility:hidden" >
+          My List!
+        </button>
+      <!-- Button trigger modal -->
+      <button style="margin-left:50px;" type="button" class="btn btn-primary d-flex justify-content-center" id="myAccount" data-toggle="modal" data-target="#exampleModal">
+        Sign In Here!
+      </button>
+
+      <!-- <h6>Two Equal Columns</h6> -->
+      <br>
+
+      <div class="rowWide">
+        <div class="column">
+          <!-- <div class="column" style="background-color:#aaa;"> -->
+          <div id="tasks-display" class=''></div>
+
+        </div>
+        <div class="column">
+            <!-- <div class="column" style="background-color:#bbb;"> -->
+          <div id="tasks-detail-display" class='make-it-middle'></div>
+
+        </div>
+      </div>
+      <!-- Modal MY aCCOUNT-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modelTitle">Sign In!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Login Section -->
+            <div class="modal-body">
+              <form id="formSignUp">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email address</label>
+                  <input name="credentials[email]" type="email" class="form-control" id="exampleFormControlInput1SignUP" placeholder="name@example.com">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="examplePassword" placeholder="type your password">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password Confirm</label>
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" id="examplePasswordConfirm" placeholder="confirm password">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button>
+                <br>
+              </form>
+              <!-- SIGN IN -->
+              <form id="formSignIn">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email address</label>
+                  <input name="credentials[email]" type="email" class="form-control" id="exampleFormControlInput1SignIn" placeholder="name@example.com" value="">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="examplePasswordFormSignIn" placeholder="type your password" value="">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-signIn">Sign In</button>
+                <br>
+              </form>
+              <!-- Change PASSWORD -->
+              <form id="form-change-password">
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Current password</label>
+                  <input name="passwords[old]" type="password" class="form-control" id="examplePasswordOld" placeholder="type your password">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">New Password</label>
+                  <input name="passwords[new]" type="password" class="form-control" id="examplePasswordNew" placeholder="type your password">
+                </div>
+                <button type="submit" class="btn btn-secondary" id="btn-ChangePassword">Change Password</button>
+                <br>
+              </form>
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" >Have an account?</button> -->
+              <!-- <form id="btnShowSignUpSectionForm">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formSignUp" id="btnShowSignUpSection">Looking To Sign Up?</button>
+                <br>
+              </form> -->
+              <form id="formSignOut">
+                <button type="submit" class="btn btn-secondary" id="btn-Signout">Sign Out</button>
+                <br>
+              </form>
+              <!-- second button -->
+                <button type="button" class="btn btn-primary" id="btnShowSignUpIn">Looking to Sign up?</button>
+              <form id="formGameHistory">
+                <button type="submit" class="btn btn-secondary" id="btn-ShowGameRecords">Show Game History</button>
+                <br>
+              </form>
+
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for New Task  -->
+      <div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newModelTitle">New Task!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Login Section -->
+            <div class="modal-body">
+              <form id="formNewTask">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Title</label>
+                  <input name="credentials[email]" class="form-control" id="newTaskFirstArea" placeholder="title of the task">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Description</label>
+                  <input name="credentials[password]" type="text" class="form-control" id="newTaskSecondArea" placeholder="Short description">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Due Date</label>
+                  <input name="credentials[password_confirmation]" type="date" class="form-control" id="newTaskThirdArea" placeholder="format: 2000-01-01">
+                </div>
+                <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
+                <br>
+              </form>
+
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <form id="frmSubmitNewTask">
+                <button type="submit" class="btn btn-primary" id="btnSubmitNewTask">Submit New Task</button>
+                <!--  Update button-->
+                <!-- <button type="submit" class="btn btn-primary" id="btnUpdateTheStep">Update the Task</button> -->
+                <br>
+              </form>
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--  Modal Update the Task-->
+      <div class="modal fade" id="updateTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateModelTitle">Update Task!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Login Section -->
+            <div class="modal-body">
+              <form id="formUpdateTask">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Title</label>
+                  <input type="text" class="form-control" id="updateTaskFirstArea" placeholder="title of the task">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Description</label>
+                  <input type="text" class="form-control" id="updateTaskSecondArea" placeholder="Short description">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Due Date</label>
+                  <input type="date" class="form-control" id="updateTaskThirdArea" placeholder="format: 2000-01-01">
+                </div>
+                <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
+                <br>
+              </form>
+
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <form id="frmSubmitUpdateTask">
+                <!--  Update button-->
+                <button type="submit" class="btn btn-primary" id="btnUpdateTheTask">Update the Task</button>
+                <br>
+              </form>
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!--  Modal New Step -->
+      <div class="modal fade" id="newStepModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modelTitle">New Step to Task!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!--Form -->
+            <div class="modal-body">
+              <form id="formNewStep">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Name</label>
+                  <input name="credentials[email]" class="form-control" id="newStepFirstArea" placeholder="Name of the step">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Color</label>
+                  <input type="text" class="form-control" id="newStepSecondArea" placeholder="Color of the Step">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">URL</label>
+                  <input type="text" class="form-control" id="newStepThirdArea" placeholder="www.url.com">
+                </div>
+                <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
+                <br>
+              </form>
+
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <form id="frmSubmitNewStep">
+                <button type="submit" class="btn btn-primary" id="btnSubmitNewStep">Submit New Step</button>
+                <!--  Update button-->
+                <!-- <button type="submit" class="btn btn-primary" id="btnUpdateTheStep">Update the Task</button> -->
+                <br>
+              </form>
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--  Modal Update a Step-->
+      <div class="modal fade" id="updateStepModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modelUpdateStepTitle">Update a Step!</h5>
+              <!-- exit button -->
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!--Form -->
+            <div class="modal-body">
+              <form id="formUpdateStep">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Name</label>
+                  <input name="credentials[email]" class="form-control" id="updateStepFirstArea" placeholder="Name of the step">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">Color</label>
+                  <input type="text" class="form-control" id="updateStepSecondArea" placeholder="Color of the Step">
+                </div>
+                <div class="form-password">
+                  <label for="exampleFormControlInput1">URL</label>
+                  <input type="text" class="form-control" id="updateStepThirdArea" placeholder="www.url.com">
+                </div>
+                <!-- <button type="submit" class="btn btn-secondary" id="btn-signUp">Sign up</button> -->
+                <br>
+              </form>
+
+            </div>
+            <!-- Buttons -->
+            <div class="modal-footer">
+              <form id="formUpdateStepFooter">
+                <!-- <button type="submit" class="btn btn-primary" id="btnSubmitNewStep">Submit New Task</button> -->
+                <!--  Update button-->
+                <button type="submit" class="btn btn-primary" id="btnUpdateTheStep">Update the Step</button>
+                <br>
+              </form>
+              <!-- <button type="button" class="btn btn-primary" >Register</button> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="footer">
+          <p>Created by Selcuk Toklucu, 2019</p>
+      </div>
+    </div>
+    </body>
+</html>
